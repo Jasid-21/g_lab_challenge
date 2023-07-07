@@ -1,19 +1,16 @@
 <template>
   <div class="master-container">
-    <navbar-vue></navbar-vue>
-    <div class="body">
-      <div class="form-container">
-        <h3>Login Form</h3>
-        <form class="login-form" @submit.prevent="login">
-          <label for="email">Email</label><br>
-          <input type="email" id="email" v-model="email" placeholder="Ej: alguien@gmail.com">
-          <br><br>
-          <label for="password">Password</label><br>
-          <input type="password" id="password" v-model="password" placeholder="Escriba su contraseña">
-          <br><br>
-          <input type="submit" value="Login!">
-        </form>
-      </div>
+    <div class="form-container">
+      <h3>Login Form</h3>
+      <form class="login-form" @submit.prevent="login">
+        <label for="email">Email</label><br>
+        <input type="email" id="email" v-model="email" placeholder="Ej: alguien@gmail.com">
+        <br><br>
+        <label for="password">Password</label><br>
+        <input type="password" id="password" v-model="password" placeholder="Escriba su contraseña">
+        <br><br>
+        <input type="submit" value="Login!">
+      </form>
     </div>
   </div>
 </template>
@@ -47,6 +44,17 @@ export default {
         const token = await resp.text();
         localStorage.setItem('jwt', token);
         router.push('/dashboard');
+        return;
+      }
+
+      if (resp.status == 500) {
+        alert("Hubo un error interno. Por favor intente más tarde...");
+        return;
+      }
+
+      if (resp.status == 401) {
+        alert("Acción no autorizada...");
+        return;
       }
     }
 
@@ -61,15 +69,8 @@ export default {
   -webkit-box-sizing:border-box;
   box-sizing:border-box;
 }
+
 .master-container {
-  width: 100vw;
-  height: 100vh;
-
-  display: grid;
-  grid-template-rows: 60px calc(100vh - 60px);
-}
-
-.body {
   display: flex;
   justify-content: center;
   align-items: center;

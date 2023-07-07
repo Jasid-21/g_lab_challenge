@@ -40,9 +40,11 @@ public class AdminAuthController {
     }
 
     @GetMapping("/test")
-    public ResponseEntity<Boolean> testToken(@RequestHeader("Authorization") String authHeader) {
+    public ResponseEntity<String> testToken(@RequestHeader("Authorization") String authHeader) {
         String token = authHeader.substring(7);
-        System.out.println(token);
-        return ResponseEntity.ok(jwtUtil.validateToken(token));
+        if (jwtUtil.validateToken(token)) {
+            return ResponseEntity.ok("Some information");
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You are unauthorized to do this...");
     }
 }

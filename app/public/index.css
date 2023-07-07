@@ -2,3 +2,8 @@ body, html {
   margin: 0px;
   padding: 0px;
 }
+
+.master-container {
+  height: 100vh;
+  height: calc(100vh - 70px);
+}

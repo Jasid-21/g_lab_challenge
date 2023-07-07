@@ -27,9 +27,11 @@ public class Reserve {
     private int people;
 
     private String observations;
+    private Boolean confirmed;
 
     // Constructor vacío (obligatorio para JPA)
     public Reserve() {
+        this.confirmed = false;
     }
 
     // Constructor con todos los campos
@@ -43,5 +45,6 @@ public class Reserve {
         this.reserveType = reserveType;
         this.people = people;
         this.observations = observations;
+        this.confirmed = false;
     }
 }

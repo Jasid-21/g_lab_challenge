@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>
+    <router-link to="/dashboard">Dashboard</router-link>
   </nav>
 </template>
 
@@ -12,9 +13,14 @@ export default {
 
 <style scoped>
 nav {
-  padding: 30px;
+  height: 70px;
+  padding: 0px 30px;
   background-color: rgb(40, 93, 153);
   color: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 nav a {
@@ -24,6 +30,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #86ecbe;
 }
 </style>

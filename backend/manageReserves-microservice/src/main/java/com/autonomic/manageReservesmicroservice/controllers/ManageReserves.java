@@ -27,17 +27,17 @@ public class ManageReserves {
         return response;
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<SavedReserveDTO> updateReserve(@PathVariable Long id, @RequestBody SavedReserveDTO reserveDTO) {
+    @PutMapping("/update")
+    public ResponseEntity<SavedReserveDTO> updateReserve(@RequestBody SavedReserveDTO reserveDTO) {
+        System.out.println("Hello");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<SavedReserveDTO> requestEntity = new HttpEntity<>(reserveDTO, headers);
         ResponseEntity<SavedReserveDTO> response = restTemplate.exchange(
-                "http://localhost:8081/reserve/{id}",
+                "http://localhost:8081/reserve/update",
                 HttpMethod.PUT,
                 requestEntity,
-                SavedReserveDTO.class,
-                id
+                SavedReserveDTO.class
         );
 
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());

@@ -43,7 +43,9 @@ public class ReserveService {
     }
 
 
-    public SavedReserveDTO updateReserve(Long id, ReserveDTO reserveDto) {
+    public SavedReserveDTO updateReserve(SavedReserveDTO reserveDto) {
+        Long id = reserveDto.getId();
+        System.out.println(id);
         Reserve existingReserve = reserveRepository.findById(id).orElse(null);
         if (existingReserve == null)
             return null;
@@ -56,6 +58,7 @@ public class ReserveService {
         existingReserve.setReserveType(reserveDto.getReserveType());
         existingReserve.setPeople(reserveDto.getPeople());
         existingReserve.setObservations(reserveDto.getObservations());
+        existingReserve.setConfirmed(reserveDto.getConfirmed());
 
         Reserve updatedReserve = reserveRepository.save(existingReserve);
         return dtoFromEntity(updatedReserve);
@@ -74,6 +77,7 @@ public class ReserveService {
         savedReserveDTO.setReserveType(reserve.getReserveType());
         savedReserveDTO.setPeople(reserve.getPeople());
         savedReserveDTO.setObservations(reserve.getObservations());
+        savedReserveDTO.setConfirmed(reserve.getConfirmed());
 
         return savedReserveDTO;
     }
