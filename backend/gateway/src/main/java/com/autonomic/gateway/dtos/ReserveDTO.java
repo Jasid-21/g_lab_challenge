@@ -1,4 +1,4 @@
-package com.reservemicroservice.reservemicroservice.dtos;
+package com.autonomic.gateway.dtos;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -9,7 +9,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public class ReserveDto {
+public class ReserveDTO {
     @NotBlank(message = "The name field is required")
     private String name;
 
@@ -27,7 +27,7 @@ public class ReserveDto {
     private LocalDateTime reserveDate;
 
     @NotBlank(message = "The event type field is required")
-    private String eventType;
+    private String reserveType;
 
     @Min(value = 1, message = "The number of people must be greater than or equal to 1")
     private int people;

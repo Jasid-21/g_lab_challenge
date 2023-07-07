@@ -1,7 +1,8 @@
 com\reservemicroservice\reservemicroservice\services\ReserveService.class
+com\reservemicroservice\reservemicroservice\dtos\ReserveDTO.class
 com\reservemicroservice\reservemicroservice\controllers\TestController.class
-com\reservemicroservice\reservemicroservice\dtos\ReserveDto.class
 com\reservemicroservice\reservemicroservice\ReserveMicroserviceApplication.class
 com\reservemicroservice\reservemicroservice\repositories\ReserveRepository.class
 com\reservemicroservice\reservemicroservice\controllers\ReserveController.class
+com\reservemicroservice\reservemicroservice\dtos\SavedReserveDTO.class
 com\reservemicroservice\reservemicroservice\entities\Reserve.class
