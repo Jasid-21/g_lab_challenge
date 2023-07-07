@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/reserve")
+@CrossOrigin(origins = "*")
 public class ReserveController {
     @Autowired
     RestTemplate restTemplate;

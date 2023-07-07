@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin(origins = "*")
 public class AdminAuthController {
     @Autowired
     RestTemplate restTemplate;
